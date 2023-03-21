@@ -1,0 +1,39 @@
+* {
+
+    width: auto;
+    height: auto;
+    font-family: 'Catamaran', sans-serif;
+}
+
+
+body{
+    background-color: rgb(174, 174, 174);  
+}
+
+.cut-text{  
+    background-image: url("../images/homepage.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-size: 70vh;
+    margin-top: 3vh;
+}
+
+h2{
+    color: #F4F4F4;
+    font-family: 'Catamaran', sans-serif;
+text-align: center;
+}
+
+
+table{
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+    color: #F4F4F4;
+    border: 2px solid #8A6B50;
+    margin-left: 45%;
+}
+
+a{
+    color:#F4F4F4;
+}

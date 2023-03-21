@@ -1,0 +1,56 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    
+    background-size: cover;
+}
+
+
+h1 {
+    letter-spacing: 1.5vw;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    text-align: center;
+    color: #F4F4F4;
+}
+
+main {
+    width: auto;
+    height: auto;
+    font-family: 'Catamaran', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../images/clock.png");  
+    background-size: cover;
+    
+}
+
+.options{
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login, .register, .schedule{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    
+}
+
+.login button, .register button, .schedule button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    color: #F4F4F4;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+
+}
