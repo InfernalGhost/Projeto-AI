@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Homepage</title>
+    <meta charset="utf8" /> 
+</head>
+<body class="body">
+    <main class="main">
+        <div class='cut-text'>HOMEPAGE</div>
+        <div class="options">
+            <form th:action="@{/music}" method="get">
+                <div class="music">
+                    <button type="submit">Choose Alarm</button>
+                </div>
+            </form>
+            <form th:action="@{/schedule}" method="get">
+                <div class="schedule">
+                    <button type="submit" class="button"> Upload Schedule</button>
+                </div>
+            </form>
+            <form th:action="@{/off}" method="get">
+              <div class="off">
+                  <button type="submit" class="button">Turn Off</button>
+              </div>
+          </form>
+        </div>
+    </main>
+</body>
+</html>
