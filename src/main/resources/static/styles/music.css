@@ -17,19 +17,25 @@ h1 {
     font-family: 'system-ui';
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 2vh;
+    margin-bottom: 8vh;
     font-size: x-large;
     color:aliceblue;
 }
 
 table{
     border-radius: 10px;
+    margin-top: 8vh;
 }
 table, th, td {
     border: 1px solid;
     justify-content: center;
 }
 .center{
+    margin-left: auto;
+    margin-right: auto;
+    background-color:aliceblue;
+}
+button{
     margin-left: auto;
     margin-right: auto;
     background-color:aliceblue;
