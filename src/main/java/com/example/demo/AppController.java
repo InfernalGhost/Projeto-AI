@@ -121,18 +121,22 @@ public class AppController {
     @PostMapping("/process_music")
     public String process_music(HttpServletRequest request) throws GeneralSecurityException, IOException {
         String[] selectedIds = request.getParameterValues("check"); // assuming the name of the checkbox is "check"
+        // print debug
         if (selectedIds != null) {
             for (String id : selectedIds) {
                 System.out.println(id);
             }
         }
+
+        this.musicService.reset();
+
         for(String m : this.musicService.getMusic()){
             Music music = this.musicRepository.findByName(m);
             this.musicRepository.deleteByName(m);
             music.setActive(false);
             this.musicRepository.save(music);
-
         }
+
         if (selectedIds != null) {
             for (String id : selectedIds){
 
@@ -158,7 +162,7 @@ public class AppController {
     @PostMapping("/process_register")
 	public String process_register(@ModelAttribute Users u) throws GeneralSecurityException, IOException {
 
-       if(this.userService.register(u)== null){
+       if(this.userService.register(u) == null){
         return "register";
        }
 
@@ -174,16 +178,16 @@ public class AppController {
 
     @PostMapping("/process_login")
 	public String process_login(@ModelAttribute Users u, Model model , HttpServletResponse request,HttpServletResponse response) throws GeneralSecurityException, IOException {
-        return "clientHomePage";
+        if(this.userService.authenticateUsers(u) == 1) // is client
+        {
+            return  "clientHomePage";
+        }
+        else if(this.userService.authenticateUsers(u) == 3) // not
+        {
+            System.out.println("Not Registed");
+        }
+        
+        return "redirect:/";
 	}
-
-    
-    /*
-    @GetMapping("/getMyMusic")
-    public String listMusic(Model model) {
-        System.out.println("AQUIIIIII");
-        model.addAttribute("listMusic", this.musicService.getMusic());
-        return "getMusic";
-    }*/
  
 }

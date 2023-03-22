@@ -32,8 +32,7 @@ public class DailyPython {
         scheduler.scheduleAtFixedRate(() -> {
             try {
                 System.out.println("GG TA A FUNCIONAR CRLS");
-                // execute the Python script using the specified path
-                //Process process = Runtime.getRuntime().exec("python " + pythonScriptPath);
+                Process process = Runtime.getRuntime().exec("python " + "/home/seed/Downloads/Projeto-AI-main/Control.py");
                 //process.waitFor(); // wait for the process to complete
             } catch (Exception e) {
                 e.printStackTrace();

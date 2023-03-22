@@ -47,10 +47,12 @@ public class MusicService {
         this.musicRepository.deleteByName(name);
         music.setActive(x);
         this.musicRepository.save(music);
-        Path temp = Files.move
-        (Paths.get("/home/seed/Desktop/Sirs-main/privKey_794.key"),
-        Paths.get("/home/seed/Desktop/privKey_794.key"));
-        
+        System.out.println(name);
+        if(x){
+            Path temp = Files.move
+            (Paths.get("/home/seed/Desktop/ai/Sirs-main/Alarms/" + name + ".mp3"),
+            Paths.get("/home/seed/Desktop/ai/Sirs-main/Alarms/Chosen/" + name + ".mp3"));
+        }        
     }
 
     public List<String> getMusic() {
@@ -62,6 +64,20 @@ public class MusicService {
         }
 
         return result;
+    }
+
+    public void reset() throws IOException{
+        File dir = new File("/home/seed/Desktop/ai/Sirs-main/Alarms/Chosen");
+        File[] directoryListing = dir.listFiles();
+        if (directoryListing != null) {
+            for (File child : directoryListing) {
+                Path temp = Files.move
+                (Paths.get("/home/seed/Desktop/ai/Sirs-main/Alarms/Chosen/" + child.getName()),
+                Paths.get("/home/seed/Desktop/ai/Sirs-main/Alarms/" + child.getName()));
+            }
+        } else {
+            return;
+        }
     }
 
 

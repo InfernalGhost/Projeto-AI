@@ -55,7 +55,6 @@ public class Users implements Serializable{
         this.email = email;
     }
     
-    
     public String getPassword() {
         return password;
     }

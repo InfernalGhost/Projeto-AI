@@ -45,11 +45,19 @@ public class UserAppService
     @Autowired    
     private MusicRepository musicRepository;
 
+    public Integer authenticateUsers(Users user)  
+    {   
+        if(userRepository.findByNomeAndPassword(user.getNome(), user.getPassword()) != null)
+            return 1; 
+        return 2;
+    }
+
     public Users register(Users user) throws GeneralSecurityException, IOException
     {   
         if(user.getEmail().isEmpty() || user.getPassword().isEmpty())
                 return null;
         else {
+            System.out.println(user.getPassword());
             user.setPassword(encode(user.getPassword()));
 
             System.out.println(user.toString());

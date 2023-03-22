@@ -12,12 +12,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserAppRepository extends MongoRepository<Users, Integer>   
 {   
-    @Query("{cedula: ?0},{password: ?1}")
-    Users findByCedulaAndPassword(int cedula,String password);
+    @Query("{nome: ?0},{password: ?1}")
+    Users findByNomeAndPassword(String nome,String password);
 
     @Query("{email: ?0}")
     Users findByEmail(String email);
 
-    @Query("{cedula: ?0}")
-    Users findByCedula(int cedula);
+    @Query("{nome: ?0}")
+    Users findByName(String nome);
 } 
