@@ -16,8 +16,6 @@ h1 {
 body{
     display: flex;
     justify-content: center;
-    height: 100vh;
-    width: 100%;
     background-image: url("../images/clock.png");
     background-size: cover; 
 }
