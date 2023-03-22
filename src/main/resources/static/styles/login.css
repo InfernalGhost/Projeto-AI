@@ -20,7 +20,18 @@ h1 {
     font-family: 'system-ui';
     text-transform: uppercase;
     text-align: center;
-    color: #F4F4F4;
+    margin-bottom: 2vh;
+    font-size: x-large;
+    color:aliceblue;
+}
+
+h2 {
+    margin-top: 9vh;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3vh;
+    color:aliceblue;
 }
 
 @-webkit-keyframes autofill {
