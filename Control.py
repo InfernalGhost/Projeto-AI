@@ -1,7 +1,6 @@
 import serial
 import time
 from preferredsoundplayer import playsound
-from mutagen.mp3 import MP3
 import os
 import random
 
@@ -13,10 +12,7 @@ Arduino = serial.Serial('/dev/ttyACM0', 57600) # Substitute _ with the USB port 
 
 def play_alarm():
     random_alarm=random.choice(os.listdir("Alarms/"))
-    #audio = MP3('Alarms' + random_alarm)
     playsound('Alarms/' + random_alarm)
-    #return audio.info.length
-
 
 while True:
     if (Arduino.inWaiting() > 0):
