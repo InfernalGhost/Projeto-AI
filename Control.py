@@ -5,8 +5,8 @@ import os
 import random
 
 sleep_time = 10
-wait_time = 5
-base_weight = 20 # Half of the object's weight
+wait_time = 180
+base_weight = 1000 # Half of the object's weight
 replay = True
 Arduino = serial.Serial('/dev/ttyACM0', 57600) # Substitute _ with the USB port being used in the PC (see in ArduinoIDE)
 
