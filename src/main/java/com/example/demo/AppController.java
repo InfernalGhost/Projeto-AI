@@ -122,31 +122,31 @@ public class AppController {
     public String process_music(HttpServletRequest request) throws GeneralSecurityException, IOException {
         String[] selectedIds = request.getParameterValues("check"); // assuming the name of the checkbox is "check"
         // print debug
-        if (selectedIds != null) {
-            for (String id : selectedIds) {
-                System.out.println(id);
-            }
-        }
 
         this.musicService.reset();
 
-        for(String m : this.musicService.getMusic()){
-            Music music = this.musicRepository.findByName(m);
-            this.musicRepository.deleteByName(m);
-            music.setActive(false);
-            this.musicRepository.save(music);
-        }
+        List<String> lista = this.musicService.getMusic();
 
         if (selectedIds != null) {
             for (String id : selectedIds){
-
-                System.out.println("ENTROU");
-                this.musicService.setActive(this.musicService.getMusic().get(Integer.parseInt(id)),true);
+                this.musicService.setActive(lista.get(Integer.parseInt(id)),true);
             }
         }
         return "clientHomePage";
     }
 
+
+    @GetMapping("/process_snooze")
+	public String process_snooze() throws GeneralSecurityException, IOException, Exception{
+        Process process = Runtime.getRuntime().exec("/usr/bin/python3 " + "/home/seed/Downloads/Projeto-AI-main/Snooze.py");
+        return "clientHomePage";
+	}
+
+    @GetMapping("/process_turnoff")
+	public String process_turnoff() throws GeneralSecurityException, IOException, Exception{
+        Process process = Runtime.getRuntime().exec("/usr/bin/python3 " + "/home/seed/Downloads/Projeto-AI-main/TurnOff.py");
+        return "clientHomePage";
+	}
 
     @GetMapping("/schedule")
 	public String Schedule(Model m) {
@@ -156,7 +156,7 @@ public class AppController {
     @PostMapping("/process_schedule")
 	public String process_schedule(@ModelAttribute("formData") Schedule schedule) throws GeneralSecurityException, IOException, Exception {
         this.scheduleService.create(schedule);
-        return "redirect:/";
+        return "clientHomePage";
 	}
 
     @PostMapping("/process_register")

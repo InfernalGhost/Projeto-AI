@@ -53,7 +53,6 @@ public class ScheduleService {
                     for(String x : horas){
                         total = total + " " + x;
                     }
-                    System.out.println(total);
                     myWriter.write(total);
                     myWriter.write("\n");
 
@@ -67,13 +66,20 @@ public class ScheduleService {
         DailyPython executor = new DailyPython();
 
         // set the Python script schedule for each day of the week
-        executor.setPythonScriptSchedule(Calendar.MONDAY, Integer.parseInt(s.getMonday1()[0]), Integer.parseInt(s.getMonday1()[1]), "Control.py");
-        executor.setPythonScriptSchedule(Calendar.TUESDAY,Integer.parseInt(s.getTuesday1()[0]), Integer.parseInt(s.getTuesday1()[1]), "Control.py");
-        executor.setPythonScriptSchedule(Calendar.WEDNESDAY, Integer.parseInt(s.getWednesday1()[0]), Integer.parseInt(s.getWednesday1()[1]), "Control.py");
-        executor.setPythonScriptSchedule(Calendar.THURSDAY, Integer.parseInt(s.getThursday1()[0]), Integer.parseInt(s.getThursday1()[1]), "Control.py");
-        executor.setPythonScriptSchedule(Calendar.FRIDAY, Integer.parseInt(s.getFriday1()[0]), Integer.parseInt(s.getFriday1()[1]), "Control.py");
-        executor.setPythonScriptSchedule(Calendar.SATURDAY, Integer.parseInt(s.getSaturday1()[0]), Integer.parseInt(s.getSaturday1()[1]), "Control.py");
-        executor.setPythonScriptSchedule(Calendar.SUNDAY, Integer.parseInt(s.getSunday1()[0]), Integer.parseInt(s.getSunday1()[1]), "Control.py");
+        if(s.getMonday1() != null)
+            executor.setPythonScriptSchedule(Calendar.MONDAY, Integer.parseInt(s.getMonday1()[0]), Integer.parseInt(s.getMonday1()[1]));
+        if(s.getTuesday1() != null)
+            executor.setPythonScriptSchedule(Calendar.TUESDAY,Integer.parseInt(s.getTuesday1()[0]), Integer.parseInt(s.getTuesday1()[1]));
+        if(s.getWednesday1() != null)
+            executor.setPythonScriptSchedule(Calendar.WEDNESDAY, Integer.parseInt(s.getWednesday1()[0]), Integer.parseInt(s.getWednesday1()[1]));
+        if(s.getThursday1() != null)
+            executor.setPythonScriptSchedule(Calendar.THURSDAY, Integer.parseInt(s.getThursday1()[0]), Integer.parseInt(s.getThursday1()[1]));
+        if(s.getFriday1() != null)
+            executor.setPythonScriptSchedule(Calendar.FRIDAY, Integer.parseInt(s.getFriday1()[0]), Integer.parseInt(s.getFriday1()[1]));
+        if(s.getSaturday1() != null)
+            executor.setPythonScriptSchedule(Calendar.SATURDAY, Integer.parseInt(s.getSaturday1()[0]), Integer.parseInt(s.getSaturday1()[1]));
+        if(s.getSunday1() != null)
+            executor.setPythonScriptSchedule(Calendar.SUNDAY, Integer.parseInt(s.getSunday1()[0]), Integer.parseInt(s.getSunday1()[1]));
     
 
     }

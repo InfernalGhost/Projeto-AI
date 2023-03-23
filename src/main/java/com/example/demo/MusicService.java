@@ -47,7 +47,6 @@ public class MusicService {
         this.musicRepository.deleteByName(name);
         music.setActive(x);
         this.musicRepository.save(music);
-        System.out.println(name);
         if(x){
             Path temp = Files.move
             (Paths.get("Alarms/" + name + ".mp3"),
@@ -79,11 +78,4 @@ public class MusicService {
             return;
         }
     }
-
-
-
-    // public Documents getFiles(int cedula){
-
-    //     return fileRepository.findByCedula(cedula);
-    // }
 }

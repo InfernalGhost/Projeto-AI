@@ -57,10 +57,8 @@ public class UserAppService
         if(user.getEmail().isEmpty() || user.getPassword().isEmpty())
                 return null;
         else {
-            System.out.println(user.getPassword());
             user.setPassword(encode(user.getPassword()));
 
-            System.out.println(user.toString());
 
             userRepository.save(user);
         }

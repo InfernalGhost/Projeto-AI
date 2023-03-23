@@ -6,6 +6,23 @@
     <meta charset="utf8" />
     <link rel="stylesheet" type="text/css" th:href="@{../styles/clientHomePage.css}"/>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+
+        function runFunction() {
+			// Send an AJAX request to the server to run the function in the backend
+			var xhr = new XMLHttpRequest();
+			xhr.open("GET", "/process_turnoff");
+			xhr.send();
+		}
+
+		function showPopup() {
+			// Ask a question and get a Yes/No answer from the user
+			var answer = confirm("Do you want to turn off the alarm ?");
+			if (answer) {
+				runFunction();
+			}
+		}
+	</script>
 </head>
 <body class="body">
     <main class="main">
@@ -22,11 +39,14 @@
                     <button type="submit" class="button"> Upload Schedule</button>
                 </div>
             </form>
-            <form th:action="@{/off}" method="get">
-              <div class="off">
-                  <button type="submit" class="button">Turn Off</button>
-              </div>
-          </form>
+            <form th:action="@{/process_snooze}" method="get">
+                <div class="snooze">
+                    <button type="submit" class="button">Snooze</button>
+                </div>
+            </form>
+            <div class="off">
+                  <button onclick="showPopup()">Turn Off</button>
+            </div>
         </div>
     </main>
 </body>

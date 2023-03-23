@@ -28,7 +28,7 @@ body{
 }
 
 
-.music button, .schedule button, .off button{
+.music button, .schedule button, .off button, .snooze button{
     margin-top: 1vh;
     display: flex;
     flex-direction: column;
