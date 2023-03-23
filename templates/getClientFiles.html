@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>List Teams</title>
+  <meta charset="utf8" />
+  <link rel="stylesheet" type="text/css" th:href="@{../styles/getClientFiles.css}"/>
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@600&family=Crimson+Pro:wght@500;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+  <div class='cut-text'>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+  </div>
+  <h2>Files List</h2>
+
+
+  <table border="1">
+    <tr>
+      <th>NAME</th>
+      <th>DOWNLOAD</th>
+    </tr>
+    <tr th:each="p : ${listFiles}">
+      <td th:text="${p.title}"></td>
+      <td><a th:href="@{downloadFile(name=${p.title})}">Download Here</a></td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
