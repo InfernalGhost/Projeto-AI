@@ -36,7 +36,6 @@ public class DailyPython {
         // schedule the task to execute at the specified time of day on the specified day of week
         scheduler.scheduleAtFixedRate(() -> {
             try {
-                System.out.println("GG TA A FUNCIONAR CRLS");
                 Process process = Runtime.getRuntime().exec("/usr/bin/python3 " + "/home/seed/Music/Projeto-AI-main/Control.py");
                 //process.waitFor(); // wait for the process to complete
             } catch (Exception e) {
