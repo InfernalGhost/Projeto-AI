@@ -1,21 +1,25 @@
 import serial
 import time
 from playsound import playsound
-from mutagen.mp3 import MP3
 import os
 import random
 
-sleep_time = 10
+sleep_time = 120
 wait_time = 180
 base_weight = 1000 # Half of the object's weight
 replay = True
+last = ""
 Arduino = serial.Serial('/dev/ttyACM0', 57600) # Substitute _ with the USB port being used in the PC (see in ArduinoIDE)
 
 def play_alarm():
     random_alarm=random.choice(os.listdir("Alarms/Chosen/"))
-    audio = MP3('Alarms/Chosen/' + random_alarm)
+    iterations = 0
+    while (last == random_alarm and iterations < 4):
+        random_alarm=random.choice(os.listdir("Alarms/Chosen/"))
+        iterations+=1
+
     playsound('Alarms/Chosen/' + random_alarm)
-    return audio.info.length
+    last = random_alarm
 
 while True:
     if (Arduino.inWaiting() > 0):
@@ -30,7 +34,7 @@ while True:
             if (value > - base_weight):
                 print("Playing alarm")
                 replay = True
-                duration = play_alarm()
+                play_alarm()
                 time.sleep(sleep_time)
                 Arduino.reset_input_buffer()
                 print("Checking")
