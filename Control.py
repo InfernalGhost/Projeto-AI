@@ -6,10 +6,12 @@ import random
 
 sleep_time = 120
 wait_time = 180
-base_weight = 5000 # Half of the object's weight
+base_weight = 5000 
 replay = True
 last_alarm = ""
-Arduino = serial.Serial('/dev/ttyACM0', 57600) # Substitute _ with the USB port being used in the PC (see in ArduinoIDE)
+port = '/dev/ttyACM0'
+
+Arduino = serial.Serial(port, 57600)
 
 def play_alarm():
     random_alarm=random.choice(os.listdir("Alarms/Chosen/"))
