@@ -49,8 +49,8 @@ public class MusicService {
         this.musicRepository.save(music);
         if(x){
             Path temp = Files.move
-            (Paths.get("Alarms/" + name + ".mp3"),
-            Paths.get("Alarms/Chosen/" + name + ".mp3"));
+            (Paths.get("../Alarms/" + name + ".mp3"),
+            Paths.get("../Alarms/Chosen/" + name + ".mp3"));
         }        
     }
 
@@ -66,13 +66,13 @@ public class MusicService {
     }
 
     public void reset() throws IOException{
-        File dir = new File("Alarms/Chosen/");
+        File dir = new File("../Alarms/Chosen/");
         File[] directoryListing = dir.listFiles();
         if (directoryListing != null) {
             for (File child : directoryListing) {
                 Path temp = Files.move
-                (Paths.get("Alarms/Chosen/" + child.getName()),
-                Paths.get("Alarms/" + child.getName()));
+                (Paths.get("../Alarms/Chosen/" + child.getName()),
+                Paths.get("../Alarms/" + child.getName()));
             }
         } else {
             return;
