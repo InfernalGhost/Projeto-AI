@@ -1,0 +1,63 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    
+    background-size: cover;
+}
+
+
+h1 {
+    margin-top: 5vh;
+    letter-spacing: 1.5vw;
+    font-family: 'system-ui';
+    text-transform: uppercase;
+    text-align: center;
+    color:aliceblue;
+    margin-bottom: 10vh;
+}
+
+/* label {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    color:aliceblue;
+    font-size: large;
+    margin-bottom: 8vh;
+} */
+
+main {
+    width: auto;
+    height: auto;
+    font-family: 'Catamaran', sans-serif;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../images/clock.png");  
+    background-size: cover;
+    
+}
+
+.options{
+    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.login button, .register button {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    color:aliceblue;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 1);
+}
